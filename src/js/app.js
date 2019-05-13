@@ -1,11 +1,17 @@
+import ThreeScene from './threeScene';
+
 class App {
 
     constructor() {
-        this.aVariable = 'hello world'
+        this.threeScene = new ThreeScene()
     }
 
-    hello() {
-        console.log(this.aVariable)
+    init() {
+        this.threeScene.init()
+    }
+
+    update() {
+        this.threeScene.update()
     }
 
 }

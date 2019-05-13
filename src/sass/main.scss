@@ -1,10 +1,163 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Robotto', sans-serif;
 }
 
-body{
+p {
+    line-height: 1.4;
+}
+
+body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    background: radial-gradient(#ffffff, #999999);
+}
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.5);
+    width: 100vw;
+    height: 100vh;
+    padding: 100px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+
+    .mask {
+        overflow: hidden;
+    }
+
+    .mask2 {
+        overflow: hidden;
+
+        .content {
+            transform: translateY(-120%);
+            animation: appear 0.5s 2s forwards cubic-bezier(0, 0, 0, 1);
+
+            .start {
+                background: rgba(#16B374, 1);
+                border-radius: 10px;
+                font-size: 1em;
+                font-weight: 700;
+                padding: 10px 20px;
+                margin-top: 10px;
+                color: white;
+                outline: none;
+                transition: all .2s;
+            }
+
+            .start:hover {
+                background: rgba(#16B374, 0);
+            }
+        }
+
+    }
+
+    h1 {
+        font-family: 'Anton', sans-serif;
+        text-transform: uppercase;
+        font-size: 10em;
+        letter-spacing: 2px;
+        margin: 0;
+        transform: translateY(100%);
+        animation: appear 0.5s 1s forwards cubic-bezier(0, 0, 0, 1);
+        margin-bottom: -0.2em;
+    }
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+}
+
+header.off {
+    animation: off .5s forwards;
+    pointer-events: none;
+}
+
+nav {
+    position: absolute;
+    right: 3em;
+    z-index: 2;
+
+
+    ul {
+        display: flex;
+        justify-content: space-around;
+        transform: rotate(-90deg);
+        width: 100vh;
+        transform-origin: bottom right;
+        overflow: hidden;
+
+        li {
+            list-style-type: none;
+            transform: translateY(300%);
+            animation: appear .5s 2.5s forwards;
+
+            a {
+                text-decoration: none;
+                color: black;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                font-size: 0.8em;
+                transition: all .2s;
+            }
+
+            a:hover {
+                color: white;
+            }
+        }
+    }
+}
+
+.biggerScreen {
+    display: none;
+}
+
+
+@media only screen and (max-width: 800px) {
+
+    header,
+    canvas,
+    nav {
+        display: none;
+    }
+
+    .biggerScreen {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        background: radial-gradient(#ffffff, #999999);
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        p {
+            text-align: center;
+            font-weight: 700;
+            font-family: 'Anton', sans-serif;
+            font-size: 3em;
+            text-transform: uppercase;
+        }
+    }
+}
+
+@keyframes appear {
+    to {
+        transform: translateY(0)
+    }
+}
+
+@keyframes off {
+    to {
+        opacity: 0;
+        transform: translateY(10%)
+    }
 }
