@@ -26,7 +26,7 @@ class ThreeScene {
     init() {
         this.audioReactor = new AudioReactor()
         this.cubeTextureLoader = new THREE.CubeTextureLoader()
-        this.cubeTextureLoader.setPath('../assets/cubeMap/')
+        this.cubeTextureLoader.setPath('assets/cubeMap/')
 
         this.cubeTexture = this.cubeTextureLoader.load([
             'px.png', 'nx.png',
