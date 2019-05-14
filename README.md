@@ -7,5 +7,5 @@ You'll need NPM
 ```
 git clone https://github.com/MariusBallot/Bubble-Zebra.git
 npm install
-gulp
+npm start
 ```
