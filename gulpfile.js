@@ -6,6 +6,7 @@ var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var uglify = require('gulp-uglify');
 var sourcemaps = require('gulp-sourcemaps');
+var glsl = require('glslify')
 
 sass.compiler = require('node-sass');
 
@@ -47,6 +48,7 @@ gulp.task('dev', function () {
     .transform("babelify", {
       presets: ["@babel/env"]
     })
+    .transform("glslify")
     .bundle()
     .pipe(source('main.js'))
     .pipe(buffer())
@@ -56,6 +58,7 @@ gulp.task('dev', function () {
 
 gulp.task('watch', function () {
   gulp.watch('./src/js/*.js', ['dev'])
+  gulp.watch('./src/js/shaders/*.glsl', ['dev'])
   gulp.watch('./src/sass/*.scss', ['sass'])
 })
 
