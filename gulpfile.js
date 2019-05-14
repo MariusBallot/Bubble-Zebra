@@ -30,6 +30,7 @@ gulp.task('build', function () {
     .transform("babelify", {
       presets: ["@babel/env"]
     })
+    .transform("glslify")
     .bundle()
     .pipe(source('main.js'))
     .pipe(buffer())
